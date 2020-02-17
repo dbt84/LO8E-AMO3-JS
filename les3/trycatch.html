@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <button type="button" onclick="myFunction()">Test Input</button>
+
+    <p id="message"></p>
+
+    <script>
+      function myFunction() {
+        var message;
+        message = document.getElementById("message");
+
+        try {
+          alerrt("Dit werkt");
+        } catch (err) {
+          message.innerHTML = err.message;
+        }
+      }
+    </script>
+  </body>
+</html>

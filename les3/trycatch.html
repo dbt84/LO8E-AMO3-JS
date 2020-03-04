@@ -13,7 +13,7 @@
         try {
           alerrt("Dit werkt");
         } catch (err) {
-          message.innerHTML = err.message;
+          message.innerHTML = err.name + "-" + err.message;
         }
       }
     </script>

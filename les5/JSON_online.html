@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>Creating a JavaScript Object.</p>
+    <button onclick="getMovie()">Haal op</button>
+    <p id="demo"></p>
+
+    <script>
+      function getMovie() {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            var myObj = JSON.parse(this.responseText);
+            document.getElementById("demo").innerHTML =
+              myObj.Title + "<br><img src='" + myObj.Poster + "'/>";
+          }
+        };
+
+        xmlhttp.open(
+          "GET",
+          "http://www.omdbapi.com/?T=rambo&apikey=f7686b16",
+          true
+        );
+        xmlhttp.send();
+      }
+    </script>
+  </body>
+</html>
